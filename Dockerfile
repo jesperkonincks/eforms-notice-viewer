@@ -1,16 +1,12 @@
 # Build stage
-FROM maven:3.8-openjdk-17 AS build
+FROM maven:3.8-openjdk-11 AS build
 WORKDIR /app
-COPY pom.xml .
-COPY src ./src
-COPY .mvn ./.mvn
-COPY mvnw .
-COPY mvnw.cmd .
+COPY . .
 RUN mvn clean package -DskipTests
 
 # Run stage
-FROM openjdk:17-slim
+FROM openjdk:11-jre-slim
 WORKDIR /app
-COPY --from=build /app/target/*.jar app.jar
+COPY --from=build /app/target/eforms-notice-viewer-*-app.jar app.jar
 EXPOSE 8080
 ENTRYPOINT ["java","-jar","app.jar"]

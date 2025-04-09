@@ -1,4 +1,10 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>2.7.18</version>
+  </parent>
+
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>eu.europa.ted.eforms</groupId>
@@ -70,6 +76,7 @@
     <version.slf4j>1.7.36</version.slf4j>
     <version.saxon-he>11.3</version.saxon-he>
     <version.xmlresolver>4.2.0</version.xmlresolver>
+    <version.spring-boot>2.7.18</version.spring-boot>
 
     <!-- Versions - Plugins -->
     <version.checkstyle.plugin>3.1.2</version.checkstyle.plugin>
@@ -192,6 +199,13 @@
   </dependencyManagement>
 
   <dependencies>
+    <!-- Spring Boot -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-web</artifactId>
+      <version>${version.spring-boot}</version>
+    </dependency>
+
     <!-- eForms -->
     <dependency>
       <groupId>eu.europa.ted.eforms</groupId>
